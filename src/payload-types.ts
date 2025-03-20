@@ -70,6 +70,7 @@ export interface Config {
     media: Media;
     products: Product;
     noticias: Noticia;
+    NivelesSuperiores: NivelesSuperiore;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -80,6 +81,7 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     products: ProductsSelect<false> | ProductsSelect<true>;
     noticias: NoticiasSelect<false> | NoticiasSelect<true>;
+    NivelesSuperiores: NivelesSuperioresSelect<false> | NivelesSuperioresSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -207,6 +209,29 @@ export interface Noticia {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "NivelesSuperiores".
+ */
+export interface NivelesSuperiore {
+  id: string;
+  'Nivel Superior': string;
+  licenciaturas: {
+    nombre: string;
+    descripcion?: string | null;
+    id?: string | null;
+  }[];
+  image: string | Media;
+  contacto: {
+    telefono: string;
+    email: string;
+    direccion: string;
+    'sitio web'?: string | null;
+  };
+  slug: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -227,6 +252,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'noticias';
         value: string | Noticia;
+      } | null)
+    | ({
+        relationTo: 'NivelesSuperiores';
+        value: string | NivelesSuperiore;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -322,6 +351,32 @@ export interface NoticiasSelect<T extends boolean = true> {
   name?: T;
   description?: T;
   image?: T;
+  slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "NivelesSuperiores_select".
+ */
+export interface NivelesSuperioresSelect<T extends boolean = true> {
+  'Nivel Superior'?: T;
+  licenciaturas?:
+    | T
+    | {
+        nombre?: T;
+        descripcion?: T;
+        id?: T;
+      };
+  image?: T;
+  contacto?:
+    | T
+    | {
+        telefono?: T;
+        email?: T;
+        direccion?: T;
+        'sitio web'?: T;
+      };
   slug?: T;
   updatedAt?: T;
   createdAt?: T;
