@@ -1,7 +1,10 @@
 import type { CollectionConfig } from 'payload'
 
 export const NivelSuperior: CollectionConfig = {
-  slug: 'NivelesSuperiores',
+  slug: 'niveles-superiores',
+  access: {
+    read: () => true,
+  },
   admin: {
     useAsTitle: 'Nivel Superior',
   },
@@ -60,14 +63,11 @@ export const NivelSuperior: CollectionConfig = {
         },
       ],
     },
+    // Campo para Google Maps
     {
-      name: 'slug',
+      name: 'Ubicación google maps',
       type: 'text',
-      unique: true, // Asegura que cada slug sea único
       required: true,
-      admin: {
-        position: 'sidebar', // Hace que el campo sea visible en la barra lateral
-      },
     },
   ],
 }

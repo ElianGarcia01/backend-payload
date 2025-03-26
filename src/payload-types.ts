@@ -70,7 +70,7 @@ export interface Config {
     media: Media;
     products: Product;
     noticias: Noticia;
-    NivelesSuperiores: NivelesSuperiore;
+    'niveles-superiores': NivelesSuperiore;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -81,7 +81,7 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     products: ProductsSelect<false> | ProductsSelect<true>;
     noticias: NoticiasSelect<false> | NoticiasSelect<true>;
-    NivelesSuperiores: NivelesSuperioresSelect<false> | NivelesSuperioresSelect<true>;
+    'niveles-superiores': NivelesSuperioresSelect<false> | NivelesSuperioresSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -209,7 +209,7 @@ export interface Noticia {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "NivelesSuperiores".
+ * via the `definition` "niveles-superiores".
  */
 export interface NivelesSuperiore {
   id: string;
@@ -226,7 +226,7 @@ export interface NivelesSuperiore {
     direccion: string;
     'sitio web'?: string | null;
   };
-  slug: string;
+  'Ubicación google maps': string;
   updatedAt: string;
   createdAt: string;
 }
@@ -254,7 +254,7 @@ export interface PayloadLockedDocument {
         value: string | Noticia;
       } | null)
     | ({
-        relationTo: 'NivelesSuperiores';
+        relationTo: 'niveles-superiores';
         value: string | NivelesSuperiore;
       } | null);
   globalSlug?: string | null;
@@ -357,7 +357,7 @@ export interface NoticiasSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "NivelesSuperiores_select".
+ * via the `definition` "niveles-superiores_select".
  */
 export interface NivelesSuperioresSelect<T extends boolean = true> {
   'Nivel Superior'?: T;
@@ -377,7 +377,7 @@ export interface NivelesSuperioresSelect<T extends boolean = true> {
         direccion?: T;
         'sitio web'?: T;
       };
-  slug?: T;
+  'Ubicación google maps'?: T;
   updatedAt?: T;
   createdAt?: T;
 }
