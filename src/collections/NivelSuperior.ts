@@ -6,11 +6,11 @@ export const NivelSuperior: CollectionConfig = {
     read: () => true,
   },
   admin: {
-    useAsTitle: 'Nivel Superior',
+    useAsTitle: 'nivelSuperior',
   },
   fields: [
     {
-      name: 'Nivel Superior',
+      name: 'nivelSuperior',
       type: 'text',
       required: true,
     },
@@ -32,7 +32,7 @@ export const NivelSuperior: CollectionConfig = {
       ],
     },
     {
-      name: 'image',
+      name: 'imagen',
       type: 'upload',
       relationTo: 'media', // Asegura que las imágenes sean gestionadas por la colección de "media"
       required: true,
@@ -65,7 +65,7 @@ export const NivelSuperior: CollectionConfig = {
     },
     // Campo para Google Maps
     {
-      name: 'Ubicación google maps',
+      name: 'ubicacion',
       type: 'text',
       required: true,
     },

@@ -213,20 +213,20 @@ export interface Noticia {
  */
 export interface NivelesSuperiore {
   id: string;
-  'Nivel Superior': string;
+  nivelSuperior: string;
   licenciaturas: {
     nombre: string;
     descripcion?: string | null;
     id?: string | null;
   }[];
-  image: string | Media;
+  imagen: string | Media;
   contacto: {
     telefono: string;
     email: string;
     direccion: string;
     'sitio web'?: string | null;
   };
-  'Ubicación google maps': string;
+  ubicacion: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -360,7 +360,7 @@ export interface NoticiasSelect<T extends boolean = true> {
  * via the `definition` "niveles-superiores_select".
  */
 export interface NivelesSuperioresSelect<T extends boolean = true> {
-  'Nivel Superior'?: T;
+  nivelSuperior?: T;
   licenciaturas?:
     | T
     | {
@@ -368,7 +368,7 @@ export interface NivelesSuperioresSelect<T extends boolean = true> {
         descripcion?: T;
         id?: T;
       };
-  image?: T;
+  imagen?: T;
   contacto?:
     | T
     | {
@@ -377,7 +377,7 @@ export interface NivelesSuperioresSelect<T extends boolean = true> {
         direccion?: T;
         'sitio web'?: T;
       };
-  'Ubicación google maps'?: T;
+  ubicacion?: T;
   updatedAt?: T;
   createdAt?: T;
 }
