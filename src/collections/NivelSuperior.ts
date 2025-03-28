@@ -9,11 +9,13 @@ export const NivelSuperior: CollectionConfig = {
     useAsTitle: 'nivelSuperior',
   },
   fields: [
+    // Nombre de la escuela
     {
       name: 'nivelSuperior',
       type: 'text',
       required: true,
     },
+    // Campo de licenciaturas - arreglo de objetos
     {
       name: 'licenciaturas',
       type: 'array',
@@ -31,12 +33,14 @@ export const NivelSuperior: CollectionConfig = {
         },
       ],
     },
+    // Campo para subir el logo
     {
       name: 'imagen',
       type: 'upload',
       relationTo: 'media', // Asegura que las imágenes sean gestionadas por la colección de "media"
       required: true,
     },
+    // Campo de contacto - arreglo de objetos
     {
       name: 'contacto',
       type: 'group',
@@ -57,7 +61,7 @@ export const NivelSuperior: CollectionConfig = {
           required: true,
         },
         {
-          name: 'sitio web',
+          name: 'sitioWeb',
           type: 'text',
           required: false,
         },
@@ -67,6 +71,25 @@ export const NivelSuperior: CollectionConfig = {
     {
       name: 'ubicacion',
       type: 'text',
+      required: true,
+    },
+    // Campo para el link del cartel
+    {
+      name: 'url_cartel',
+      type: 'text',
+      required: false,
+    },
+    // Campo de region
+    {
+      name: 'region',
+      type: 'text',
+      required: true,
+    },
+    // Campo para subir imagen del cartel
+    {
+      name: 'imagen_cartel',
+      type: 'upload',
+      relationTo: 'media', // Asegura que las imágenes sean gestionadas por la colección de "media"
       required: true,
     },
   ],

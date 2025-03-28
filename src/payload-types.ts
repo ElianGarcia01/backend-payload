@@ -224,9 +224,12 @@ export interface NivelesSuperiore {
     telefono: string;
     email: string;
     direccion: string;
-    'sitio web'?: string | null;
+    sitioWeb?: string | null;
   };
   ubicacion: string;
+  url_cartel?: string | null;
+  region: string;
+  imagen_cartel: string | Media;
   updatedAt: string;
   createdAt: string;
 }
@@ -375,9 +378,12 @@ export interface NivelesSuperioresSelect<T extends boolean = true> {
         telefono?: T;
         email?: T;
         direccion?: T;
-        'sitio web'?: T;
+        sitioWeb?: T;
       };
   ubicacion?: T;
+  url_cartel?: T;
+  region?: T;
+  imagen_cartel?: T;
   updatedAt?: T;
   createdAt?: T;
 }
