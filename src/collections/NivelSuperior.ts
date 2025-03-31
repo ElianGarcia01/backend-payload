@@ -73,10 +73,16 @@ export const NivelSuperior: CollectionConfig = {
       type: 'text',
       required: true,
     },
-    // Campo para el link del cartel
+    // Campo para el link e imagen del cartel
     {
-      name: 'url_cartel',
+      name: 'cartel',
       type: 'text',
+      required: false,
+    },
+    {
+      name: 'imagenCartel',
+      type: 'upload',
+      relationTo: 'media', // Asegura que las imágenes sean gestionadas por la colección de "media"
       required: false,
     },
     // Campo de region
@@ -85,12 +91,11 @@ export const NivelSuperior: CollectionConfig = {
       type: 'text',
       required: true,
     },
-    // Campo para subir imagen del cartel
+    // Video promocional
     {
-      name: 'imagen_cartel',
-      type: 'upload',
-      relationTo: 'media', // Asegura que las imágenes sean gestionadas por la colección de "media"
-      required: true,
+      name: 'videoPromocional',
+      type: 'text',
+      required: false,
     },
   ],
 }

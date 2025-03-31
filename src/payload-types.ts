@@ -227,9 +227,10 @@ export interface NivelesSuperiore {
     sitioWeb?: string | null;
   };
   ubicacion: string;
-  url_cartel?: string | null;
+  cartel?: string | null;
+  imagenCartel?: (string | null) | Media;
   region: string;
-  imagen_cartel: string | Media;
+  videoPromocional?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -381,9 +382,10 @@ export interface NivelesSuperioresSelect<T extends boolean = true> {
         sitioWeb?: T;
       };
   ubicacion?: T;
-  url_cartel?: T;
+  cartel?: T;
+  imagenCartel?: T;
   region?: T;
-  imagen_cartel?: T;
+  videoPromocional?: T;
   updatedAt?: T;
   createdAt?: T;
 }
