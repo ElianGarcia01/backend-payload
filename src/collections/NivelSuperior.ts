@@ -88,12 +88,21 @@ export const NivelSuperior: CollectionConfig = {
     // Sección de región con video promocional incluido
     {
       name: 'region',
-      type: 'group', // Cambiado de 'text' a 'group' para agrupar campos
+      type: 'group',
       fields: [
         {
           name: 'nombre',
-          type: 'text',
+          type: 'select',
           required: true,
+          options: [
+            { label: 'Centro', value: 'Centro' },
+            { label: 'Norte', value: 'Norte' },
+            { label: 'Montaña', value: 'Montaña' },
+            { label: 'Acapulco', value: 'Acapulco' },
+            { label: 'Tierra Caliente', value: 'Tierra Caliente' },
+            { label: 'Costa Chica', value: 'Costa Chica' },
+            { label: 'Costa Grande', value: 'Costa Grande' },
+          ],
         },
         {
           name: 'videoPromocional',

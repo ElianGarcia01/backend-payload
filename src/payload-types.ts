@@ -231,7 +231,7 @@ export interface NivelesSuperiore {
   cartel?: string | null;
   imagenCartel?: (string | null) | Media;
   region: {
-    nombre: string;
+    nombre: 'Centro' | 'Norte' | 'Montaña' | 'Acapulco' | 'Tierra Caliente' | 'Costa Chica' | 'Costa Grande';
     videoPromocional?: string | null;
   };
   updatedAt: string;
