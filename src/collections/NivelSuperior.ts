@@ -37,7 +37,7 @@ export const NivelSuperior: CollectionConfig = {
     {
       name: 'imagen',
       type: 'upload',
-      relationTo: 'media', // Asegura que las imágenes sean gestionadas por la colección de "media"
+      relationTo: 'media',
       required: true,
     },
     // Campo de contacto - arreglo de objetos
@@ -82,20 +82,25 @@ export const NivelSuperior: CollectionConfig = {
     {
       name: 'imagenCartel',
       type: 'upload',
-      relationTo: 'media', // Asegura que las imágenes sean gestionadas por la colección de "media"
+      relationTo: 'media',
       required: false,
     },
-    // Campo de region
+    // Sección de región con video promocional incluido
     {
       name: 'region',
-      type: 'text',
-      required: true,
-    },
-    // Video promocional
-    {
-      name: 'videoPromocional',
-      type: 'text',
-      required: false,
+      type: 'group', // Cambiado de 'text' a 'group' para agrupar campos
+      fields: [
+        {
+          name: 'nombre',
+          type: 'text',
+          required: true,
+        },
+        {
+          name: 'videoPromocional',
+          type: 'text',
+          required: false,
+        },
+      ],
     },
   ],
 }

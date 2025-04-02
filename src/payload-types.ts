@@ -54,6 +54,7 @@ export type SupportedTimezones =
   | 'Asia/Singapore'
   | 'Asia/Tokyo'
   | 'Asia/Seoul'
+  | 'Australia/Brisbane'
   | 'Australia/Sydney'
   | 'Pacific/Guam'
   | 'Pacific/Noumea'
@@ -229,8 +230,10 @@ export interface NivelesSuperiore {
   ubicacion: string;
   cartel?: string | null;
   imagenCartel?: (string | null) | Media;
-  region: string;
-  videoPromocional?: string | null;
+  region: {
+    nombre: string;
+    videoPromocional?: string | null;
+  };
   updatedAt: string;
   createdAt: string;
 }
@@ -384,8 +387,12 @@ export interface NivelesSuperioresSelect<T extends boolean = true> {
   ubicacion?: T;
   cartel?: T;
   imagenCartel?: T;
-  region?: T;
-  videoPromocional?: T;
+  region?:
+    | T
+    | {
+        nombre?: T;
+        videoPromocional?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }
