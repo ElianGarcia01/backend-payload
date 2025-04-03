@@ -72,6 +72,7 @@ export interface Config {
     products: Product;
     noticias: Noticia;
     'niveles-superiores': NivelesSuperiore;
+    'servicios-imagenes': ServiciosImagene;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -83,6 +84,7 @@ export interface Config {
     products: ProductsSelect<false> | ProductsSelect<true>;
     noticias: NoticiasSelect<false> | NoticiasSelect<true>;
     'niveles-superiores': NivelesSuperioresSelect<false> | NivelesSuperioresSelect<true>;
+    'servicios-imagenes': ServiciosImagenesSelect<false> | ServiciosImagenesSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -239,6 +241,24 @@ export interface NivelesSuperiore {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "servicios-imagenes".
+ */
+export interface ServiciosImagene {
+  id: string;
+  servicios: string;
+  grupos?:
+    | {
+        tituloGrupo: string;
+        imagenFondo: string | Media;
+        imagenFrontal: string | Media;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -263,6 +283,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'niveles-superiores';
         value: string | NivelesSuperiore;
+      } | null)
+    | ({
+        relationTo: 'servicios-imagenes';
+        value: string | ServiciosImagene;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -392,6 +416,23 @@ export interface NivelesSuperioresSelect<T extends boolean = true> {
     | {
         nombre?: T;
         videoPromocional?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "servicios-imagenes_select".
+ */
+export interface ServiciosImagenesSelect<T extends boolean = true> {
+  servicios?: T;
+  grupos?:
+    | T
+    | {
+        tituloGrupo?: T;
+        imagenFondo?: T;
+        imagenFrontal?: T;
+        id?: T;
       };
   updatedAt?: T;
   createdAt?: T;

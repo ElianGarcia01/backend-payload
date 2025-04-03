@@ -12,6 +12,7 @@ import { Media } from './collections/Media'
 import { Products } from './collections/Product'
 import { Noticias } from './collections/Noticia'
 import { NivelSuperior } from './collections/NivelSuperior'
+import { Servicios } from './collections/Servicios'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -24,7 +25,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Products, Noticias, NivelSuperior],
+  collections: [Users, Media, Products, Noticias, NivelSuperior, Servicios],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
