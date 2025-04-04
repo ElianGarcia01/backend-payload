@@ -6,47 +6,31 @@ export const Servicios: CollectionConfig = {
     read: () => true,
   },
   admin: {
-    useAsTitle: 'servicios',
-    // defaultColumns: ['titulo', 'grupos'],
+    useAsTitle: 'titulo',
   },
   fields: [
-    // Título principal del conjunto de grupos
+    // Título del grupo (antes estaba dentro del array)
     {
-      name: 'servicios',
+      name: 'titulo',
       type: 'text',
+      label: 'Título',
       required: true,
     },
-    // Array de grupos de imágenes
+    // Imagen de fondo
     {
-      name: 'grupos',
-      type: 'array',
-      label: 'Grupos de Imágenes',
-      minRows: 1,
-      fields: [
-        {
-          name: 'tituloGrupo',
-          type: 'text',
-          label: 'Título del Grupo',
-          required: true,
-        },
-        {
-          name: 'imagenFondo',
-          type: 'upload',
-          label: 'Imagen de Fondo',
-          relationTo: 'media',
-          required: true,
-        },
-        {
-          name: 'imagenFrontal',
-          type: 'upload',
-          label: 'Imagen Frontal',
-          relationTo: 'media',
-          required: true,
-        },
-      ],
-      admin: {
-        initCollapsed: true,
-      },
+      name: 'imagenFondo',
+      type: 'upload',
+      label: 'Imagen de Fondo',
+      relationTo: 'media',
+      required: true,
+    },
+    // Imagen frontal
+    {
+      name: 'imagenFrontal',
+      type: 'upload',
+      label: 'Imagen Frontal',
+      relationTo: 'media',
+      required: true,
     },
   ],
 }
