@@ -32,7 +32,7 @@ export default async function HomePage() {
             rel="noopener noreferrer"
             target="_blank"
           >
-            Ir al panel de Administración
+            Ir a panel de Administración
           </a>
         </div>
       </div>
