@@ -5,13 +5,6 @@ export const Media: CollectionConfig = {
   access: {
     read: () => true,
   },
-  fields: [
-    {
-      name: 'alt',
-      type: 'text',
-      required: true,
-    },
-  ],
   upload: {
     imageSizes: [
       {
@@ -53,4 +46,11 @@ export const Media: CollectionConfig = {
     // Opcional: Conserva original para compatibilidad
     disableLocalStorage: false,
   },
+  fields: [
+    {
+      name: 'alt',
+      type: 'text',
+      required: true,
+    },
+  ],
 }
