@@ -4,6 +4,9 @@ import type { CollectionConfig } from 'payload'
 export const DestacadoDeportes: CollectionConfig = {
   // Identificador único para la colección en la URL y el CMS
   slug: 'DestacadoDeportes',
+  access: {
+    read: () => true,
+  },
 
   // Campo que se usará como título principal en el panel de administración
   admin: {
