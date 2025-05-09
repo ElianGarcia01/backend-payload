@@ -73,6 +73,7 @@ export interface Config {
     noticias: Noticia;
     'niveles-superiores': NivelesSuperiore;
     'servicios-imagenes': ServiciosImagene;
+    DestacadoDeportes: DestacadoDeporte;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -85,6 +86,7 @@ export interface Config {
     noticias: NoticiasSelect<false> | NoticiasSelect<true>;
     'niveles-superiores': NivelesSuperioresSelect<false> | NivelesSuperioresSelect<true>;
     'servicios-imagenes': ServiciosImagenesSelect<false> | ServiciosImagenesSelect<true>;
+    DestacadoDeportes: DestacadoDeportesSelect<false> | DestacadoDeportesSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -295,6 +297,20 @@ export interface ServiciosImagene {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "DestacadoDeportes".
+ */
+export interface DestacadoDeporte {
+  id: string;
+  title: string;
+  description: string;
+  image: string | Media;
+  publishedAt: string;
+  isFeatured?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -323,6 +339,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'servicios-imagenes';
         value: string | ServiciosImagene;
+      } | null)
+    | ({
+        relationTo: 'DestacadoDeportes';
+        value: string | DestacadoDeporte;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -518,6 +538,19 @@ export interface ServiciosImagenesSelect<T extends boolean = true> {
   titulo?: T;
   imagenFondo?: T;
   imagenFrontal?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "DestacadoDeportes_select".
+ */
+export interface DestacadoDeportesSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  image?: T;
+  publishedAt?: T;
+  isFeatured?: T;
   updatedAt?: T;
   createdAt?: T;
 }

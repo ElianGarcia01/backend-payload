@@ -13,6 +13,7 @@ import { Products } from './collections/Product'
 import { Noticias } from './collections/Noticia'
 import { NivelSuperior } from './collections/NivelSuperior'
 import { Servicios } from './collections/Servicios'
+import { DestacadoDeportes } from './collections/DestacadoDeportes'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -25,7 +26,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Products, Noticias, NivelSuperior, Servicios],
+  collections: [Users, Media, Products, Noticias, NivelSuperior, Servicios, DestacadoDeportes],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
@@ -35,8 +36,5 @@ export default buildConfig({
     url: process.env.DATABASE_URI || '',
   }),
   sharp,
-  plugins: [
-    payloadCloudPlugin(),
-    // storage-adapter-placeholder
-  ],
+  plugins: [payloadCloudPlugin()],
 })
