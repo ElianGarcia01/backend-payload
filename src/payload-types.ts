@@ -74,6 +74,7 @@ export interface Config {
     'niveles-superiores': NivelesSuperiore;
     'servicios-imagenes': ServiciosImagene;
     DestacadoDeportes: DestacadoDeporte;
+    Paginas: Pagina;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -87,6 +88,7 @@ export interface Config {
     'niveles-superiores': NivelesSuperioresSelect<false> | NivelesSuperioresSelect<true>;
     'servicios-imagenes': ServiciosImagenesSelect<false> | ServiciosImagenesSelect<true>;
     DestacadoDeportes: DestacadoDeportesSelect<false> | DestacadoDeportesSelect<true>;
+    Paginas: PaginasSelect<false> | PaginasSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -311,6 +313,24 @@ export interface DestacadoDeporte {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Paginas".
+ */
+export interface Pagina {
+  id: string;
+  Pagina: string;
+  descripcion?: string | null;
+  imagen?: (string | null) | Media;
+  Seccion: {
+    nombre: string;
+    descripcion?: string | null;
+    imagen?: (string | null) | Media;
+    id?: string | null;
+  }[];
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -343,6 +363,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'DestacadoDeportes';
         value: string | DestacadoDeporte;
+      } | null)
+    | ({
+        relationTo: 'Paginas';
+        value: string | Pagina;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -551,6 +575,25 @@ export interface DestacadoDeportesSelect<T extends boolean = true> {
   image?: T;
   publishedAt?: T;
   isFeatured?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Paginas_select".
+ */
+export interface PaginasSelect<T extends boolean = true> {
+  Pagina?: T;
+  descripcion?: T;
+  imagen?: T;
+  Seccion?:
+    | T
+    | {
+        nombre?: T;
+        descripcion?: T;
+        imagen?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }

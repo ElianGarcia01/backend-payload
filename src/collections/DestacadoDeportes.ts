@@ -1,6 +1,5 @@
 import type { CollectionConfig } from 'payload'
 
-// Definición de la colección "News" para almacenar noticias del sitio
 export const DestacadoDeportes: CollectionConfig = {
   // Identificador único para la colección en la URL y el CMS
   slug: 'DestacadoDeportes',
