@@ -19,7 +19,7 @@ export const Paginas: CollectionConfig = {
 
     {
       name: 'descripcion',
-      type: 'text',
+      type: 'textarea',
       required: false,
     },
     // Campo para subir banner de la pagina (opcional)
@@ -42,7 +42,7 @@ export const Paginas: CollectionConfig = {
         },
         {
           name: 'descripcion',
-          type: 'text',
+          type: 'textarea',
           required: false,
         },
         {

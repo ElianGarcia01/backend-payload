@@ -75,6 +75,7 @@ export interface Config {
     'servicios-imagenes': ServiciosImagene;
     DestacadoDeportes: DestacadoDeporte;
     Paginas: Pagina;
+    Talentos: Talento;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -89,6 +90,7 @@ export interface Config {
     'servicios-imagenes': ServiciosImagenesSelect<false> | ServiciosImagenesSelect<true>;
     DestacadoDeportes: DestacadoDeportesSelect<false> | DestacadoDeportesSelect<true>;
     Paginas: PaginasSelect<false> | PaginasSelect<true>;
+    Talentos: TalentosSelect<false> | TalentosSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -331,6 +333,20 @@ export interface Pagina {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Talentos".
+ */
+export interface Talento {
+  id: string;
+  title: string;
+  description: string;
+  image: string | Media;
+  publishedAt: string;
+  isFeatured?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -367,6 +383,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'Paginas';
         value: string | Pagina;
+      } | null)
+    | ({
+        relationTo: 'Talentos';
+        value: string | Talento;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -594,6 +614,19 @@ export interface PaginasSelect<T extends boolean = true> {
         imagen?: T;
         id?: T;
       };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Talentos_select".
+ */
+export interface TalentosSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  image?: T;
+  publishedAt?: T;
+  isFeatured?: T;
   updatedAt?: T;
   createdAt?: T;
 }

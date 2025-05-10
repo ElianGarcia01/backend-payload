@@ -15,6 +15,7 @@ import { NivelSuperior } from './collections/NivelSuperior'
 import { Servicios } from './collections/Servicios'
 import { DestacadoDeportes } from './collections/DestacadoDeportes'
 import { Paginas } from './collections/Paginas'
+import { Talentos } from './collections/Talentos'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -36,6 +37,7 @@ export default buildConfig({
     Servicios,
     DestacadoDeportes,
     Paginas,
+    Talentos,
   ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
