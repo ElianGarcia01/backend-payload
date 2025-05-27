@@ -32,5 +32,14 @@ export const Servicios: CollectionConfig = {
       relationTo: 'media',
       required: true,
     },
+    {
+      name: 'url',
+      type: 'text',
+      label: 'URL',
+      required: true,
+      admin: {
+        placeholder: 'https://ejemplo.com',
+      },
+    },
   ],
 }

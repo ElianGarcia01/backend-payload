@@ -296,6 +296,7 @@ export interface ServiciosImagene {
   titulo: string;
   imagenFondo: string | Media;
   imagenFrontal: string | Media;
+  url: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -582,6 +583,7 @@ export interface ServiciosImagenesSelect<T extends boolean = true> {
   titulo?: T;
   imagenFondo?: T;
   imagenFrontal?: T;
+  url?: T;
   updatedAt?: T;
   createdAt?: T;
 }
