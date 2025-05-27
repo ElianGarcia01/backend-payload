@@ -31,6 +31,22 @@ El servidor está configurado para **evitar conflictos** entre las rutas del CMS
 
 ---
 
+## 🚀 Requisitos previos
+
+Antes de instalar y ejecutar este proyecto, asegúrate de tener lo siguiente:
+
+1. **Instalar Node.js (versión 18 o superior)**
+   - Descarga desde: https://nodejs.org/
+   - Para verificar la instalación, abre tu terminal y ejecuta:
+     ```bash
+     node -v
+     npm -v
+
+2. **Tener una cuenta en MongoDB Atlas**
+   - Crea una base de datos y obtén tu URI de conexión (por ejemplo: `mongodb+srv://usuario:clave@cluster.mongodb.net/mi-base`)
+
+---
+
 ## 📦 Instalación local
 
 1. Clona el proyecto:
