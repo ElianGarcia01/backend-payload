@@ -14,6 +14,7 @@ import { Servicios } from './collections/Servicios'
 import { DestacadoDeportes } from './collections/DestacadoDeportes'
 import { Paginas } from './collections/Paginas'
 import { Talentos } from './collections/Talentos'
+import { oferta } from './collections/Oferta'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -36,6 +37,7 @@ export default buildConfig({
     DestacadoDeportes,
     Paginas,
     Talentos,
+    oferta,
   ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',

@@ -76,6 +76,7 @@ export interface Config {
     DestacadoDeportes: DestacadoDeporte;
     Paginas: Pagina;
     Talentos: Talento;
+    oferta: Oferta;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -91,6 +92,7 @@ export interface Config {
     DestacadoDeportes: DestacadoDeportesSelect<false> | DestacadoDeportesSelect<true>;
     Paginas: PaginasSelect<false> | PaginasSelect<true>;
     Talentos: TalentosSelect<false> | TalentosSelect<true>;
+    oferta: OfertaSelect<false> | OfertaSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -348,6 +350,19 @@ export interface Talento {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "oferta".
+ */
+export interface Oferta {
+  id: string;
+  titulo: string;
+  imagenReverso: string | Media;
+  url: string;
+  color: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -388,6 +403,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'Talentos';
         value: string | Talento;
+      } | null)
+    | ({
+        relationTo: 'oferta';
+        value: string | Oferta;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -629,6 +648,18 @@ export interface TalentosSelect<T extends boolean = true> {
   image?: T;
   publishedAt?: T;
   isFeatured?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "oferta_select".
+ */
+export interface OfertaSelect<T extends boolean = true> {
+  titulo?: T;
+  imagenReverso?: T;
+  url?: T;
+  color?: T;
   updatedAt?: T;
   createdAt?: T;
 }
