@@ -15,6 +15,7 @@ import { DestacadoDeportes } from './collections/DestacadoDeportes'
 import { Paginas } from './collections/Paginas'
 import { Talentos } from './collections/Talentos'
 import { oferta } from './collections/Oferta'
+import { Bachilleratos } from './collections/Bachilleratos'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -38,6 +39,7 @@ export default buildConfig({
     Paginas,
     Talentos,
     oferta,
+    Bachilleratos,
   ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',

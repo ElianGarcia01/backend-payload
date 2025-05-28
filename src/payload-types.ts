@@ -77,6 +77,7 @@ export interface Config {
     Paginas: Pagina;
     Talentos: Talento;
     oferta: Oferta;
+    Bachilleratos: Bachillerato;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -93,6 +94,7 @@ export interface Config {
     Paginas: PaginasSelect<false> | PaginasSelect<true>;
     Talentos: TalentosSelect<false> | TalentosSelect<true>;
     oferta: OfertaSelect<false> | OfertaSelect<true>;
+    Bachilleratos: BachilleratosSelect<false> | BachilleratosSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -266,6 +268,7 @@ export interface Noticia {
  */
 export interface NivelesSuperiore {
   id: string;
+  Programa: string;
   nivelSuperior: string;
   licenciaturas: {
     nombre: string;
@@ -363,6 +366,38 @@ export interface Oferta {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Bachilleratos".
+ */
+export interface Bachillerato {
+  id: string;
+  Programa?: string | null;
+  Bachilleratos: string;
+  Turnos?:
+    | {
+        nombre?: string | null;
+        descripcion?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  imagen: string | Media;
+  contacto: {
+    telefono: string;
+    email: string;
+    direccion: string;
+    sitioWeb?: string | null;
+  };
+  ubicacion: string;
+  cartel?: string | null;
+  imagenCartel?: (string | null) | Media;
+  region: {
+    nombre: 'Centro' | 'Norte' | 'Montaña' | 'Acapulco' | 'Tierra Caliente' | 'Costa Chica' | 'Costa Grande';
+    videoPromocional?: string | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -407,6 +442,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'oferta';
         value: string | Oferta;
+      } | null)
+    | ({
+        relationTo: 'Bachilleratos';
+        value: string | Bachillerato;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -565,6 +604,7 @@ export interface NoticiasSelect<T extends boolean = true> {
  * via the `definition` "niveles-superiores_select".
  */
 export interface NivelesSuperioresSelect<T extends boolean = true> {
+  Programa?: T;
   nivelSuperior?: T;
   licenciaturas?:
     | T
@@ -660,6 +700,41 @@ export interface OfertaSelect<T extends boolean = true> {
   imagenReverso?: T;
   url?: T;
   color?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Bachilleratos_select".
+ */
+export interface BachilleratosSelect<T extends boolean = true> {
+  Programa?: T;
+  Bachilleratos?: T;
+  Turnos?:
+    | T
+    | {
+        nombre?: T;
+        descripcion?: T;
+        id?: T;
+      };
+  imagen?: T;
+  contacto?:
+    | T
+    | {
+        telefono?: T;
+        email?: T;
+        direccion?: T;
+        sitioWeb?: T;
+      };
+  ubicacion?: T;
+  cartel?: T;
+  imagenCartel?: T;
+  region?:
+    | T
+    | {
+        nombre?: T;
+        videoPromocional?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }

@@ -1,36 +1,36 @@
 import type { CollectionConfig } from 'payload'
 
-export const NivelSuperior: CollectionConfig = {
-  slug: 'niveles-superiores',
+export const Bachilleratos: CollectionConfig = {
+  slug: 'Bachilleratos',
   access: {
     read: () => true,
   },
   admin: {
-    useAsTitle: 'nivelSuperior',
+    useAsTitle: 'Bachilleratos',
   },
   fields: [
     // Nombre de Programa Educativo
     {
       name: 'Programa',
       type: 'text',
-      required: true,
+      required: false,
     },
     // Nombre de la escuela
     {
-      name: 'nivelSuperior',
+      name: 'Bachilleratos',
       type: 'text',
       required: true,
     },
     // Campo de licenciaturas - arreglo de objetos
     {
-      name: 'licenciaturas',
+      name: 'Turnos',
       type: 'array',
-      required: true,
+      required: false,
       fields: [
         {
           name: 'nombre',
           type: 'text',
-          required: true,
+          required: false,
         },
         {
           name: 'descripcion',
