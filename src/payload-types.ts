@@ -78,6 +78,7 @@ export interface Config {
     Talentos: Talento;
     oferta: Oferta;
     Bachilleratos: Bachillerato;
+    cultura: Cultura;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -95,6 +96,7 @@ export interface Config {
     Talentos: TalentosSelect<false> | TalentosSelect<true>;
     oferta: OfertaSelect<false> | OfertaSelect<true>;
     Bachilleratos: BachilleratosSelect<false> | BachilleratosSelect<true>;
+    cultura: CulturaSelect<false> | CulturaSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -398,6 +400,18 @@ export interface Bachillerato {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "cultura".
+ */
+export interface Cultura {
+  id: string;
+  titulo: string;
+  descripcion: string;
+  imagen: string | Media;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -446,6 +460,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'Bachilleratos';
         value: string | Bachillerato;
+      } | null)
+    | ({
+        relationTo: 'cultura';
+        value: string | Cultura;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -735,6 +753,17 @@ export interface BachilleratosSelect<T extends boolean = true> {
         nombre?: T;
         videoPromocional?: T;
       };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "cultura_select".
+ */
+export interface CulturaSelect<T extends boolean = true> {
+  titulo?: T;
+  descripcion?: T;
+  imagen?: T;
   updatedAt?: T;
   createdAt?: T;
 }
